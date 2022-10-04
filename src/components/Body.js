@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Index from "../pages/Index";
 import ShowBody from "../pages/showBody";
 import New from "../pages/New";
+import Update from "../pages/Update";
 
 const Body = (props) => {
     //set state for content and setContent function
@@ -30,6 +31,18 @@ const Body = (props) => {
         })
         getContent();
     };
+
+    const updateContent = async (lesson, id) => {
+        // make put request to create content route
+        await fetch(URL + id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "Application/json",
+            },
+            body: JSON.stringify(lesson)
+        });
+    }
+
     // users can delete content
     const deleteContent = async id => {
         // make delete request
@@ -38,6 +51,8 @@ const Body = (props) => {
         })
         getContent();
     };
+
+    
 
     //Initial render
     useEffect(() => {
@@ -57,6 +72,9 @@ const Body = (props) => {
                         createContent={createContent}
                     />
                 </Route>
+                <Route path="/content/:id/update">
+                    <Update updateContent={updateContent}/>
+                </Route>
                 <Route
                     path="/content/:id"
                     render={(rp) => (
@@ -66,7 +84,7 @@ const Body = (props) => {
                             {...rp}
                         />
                     )}
-                />
+                />                
             </Switch>
         </main>
     );
