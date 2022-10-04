@@ -1,6 +1,7 @@
 import VideoPlayer from "../components/VideoPlayer";
 import Tabs from "../components/Tabs";
 import SuggestContent from "../components/SuggestContent";
+import {Link} from "react-router-dom";
 
 function ShowBody(props) {
 
@@ -21,6 +22,7 @@ function ShowBody(props) {
                 </button>
             </div>
             <div className="ShowContent"><Tabs lesson={lesson} /></div>
+            <Link to={`/content/${id}/update`}>Update</Link>
         </div>
     )
 }

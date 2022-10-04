@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-function Update() {
+
+function Update(props) {
+
+
 
   return (
-    <div>Update</div>
+    <div>Update Lesson</div>
   )
 }
 
