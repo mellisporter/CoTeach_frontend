@@ -1,5 +1,6 @@
 import VideoPlayer from "../components/VideoPlayer";
 import Tabs from "../components/Tabs";
+
 function ShowBody(props) {
     const id = props.match.params.id;
     const content = props.content;
