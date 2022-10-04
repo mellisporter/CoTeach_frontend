@@ -17,8 +17,9 @@ function ShowBody(props) {
             <div className="ShowContent"><Tabs /></div>
 
 
-
+            <button id="delete" onClick={removeContent}>Delete Content</button>
         </div>
+        
     )
 }
 
