@@ -31,6 +31,15 @@ const Body = (props) => {
         getContent();
     };
 
+    // users can delete content
+    const deleteContent = async id => {
+        // make delete request
+        await fetch(URL + id, {
+            method: "DELETE",
+        })
+        getContent();
+    }
+
     //Initial render
     useEffect(() => {
         getContent();
@@ -53,6 +62,8 @@ const Body = (props) => {
                     path="/content/:id"
                     render={(rp) => (
                         <ShowBody
+                            content={content}
+                            deleteContent={deleteContent}
                             {...rp}
                         />
                     )}
