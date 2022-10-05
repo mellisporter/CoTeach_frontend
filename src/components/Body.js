@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useParams } from "react-router-dom";
 import Index from "../pages/Index";
 import ShowBody from "../pages/showBody";
 import New from "../pages/New";
@@ -55,10 +55,10 @@ const Body = (props) => {
     
 
     //Initial render
-    useEffect(() => {
-        getContent();
-    }, []);
-    console.log(content)
+    useEffect(() => {getContent();}, []);
+
+    console.log("Index" , {content})
+
     return (
         <main>
             <Switch>
@@ -73,7 +73,7 @@ const Body = (props) => {
                     />
                 </Route>
                 <Route path="/content/:id/update">
-                    <Update updateContent={updateContent}/>
+                    <Update content={content} updateContent={updateContent}/>
                 </Route>
                 <Route
                     path="/content/:id"

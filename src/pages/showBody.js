@@ -4,10 +4,11 @@ import SuggestContent from "../components/SuggestContent";
 import {Link} from "react-router-dom";
 
 function ShowBody(props) {
-
+    console.log("show ID" , props)
     const id = props.match.params.id;
     const content = props.content;
     const lesson = content.find(l => l._id === id)
+
     const removeContent = () => {
         props.deleteContent(lesson._id);
         props.history.push("/");
